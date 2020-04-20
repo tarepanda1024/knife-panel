@@ -27,5 +27,7 @@ func Inject(container *dig.Container) error {
 	_ = container.Provide(func(b *internal.FileBrowser) bll.IFileBrowser { return b })
 	_ = container.Provide(internal.NewSystemMonitor)
 	_ = container.Provide(func(b *internal.SystemMonitor) bll.ISystemMonitor { return b })
+	_ = container.Provide(internal.NewPackage)
+	_ = container.Provide(func(b *internal.Package) bll.IPackage { return b })
 	return nil
 }

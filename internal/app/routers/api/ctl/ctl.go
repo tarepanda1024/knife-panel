@@ -17,5 +17,6 @@ func Inject(container *dig.Container) error {
 	_ = container.Provide(NewUser)
 	_ = container.Provide(NewFileBrowser)
 	_ = container.Provide(NewSystemMonitor)
+	_ = container.Provide(NewPackage)
 	return nil
 }

@@ -18,6 +18,7 @@ func RegisterRouter(app *gin.Engine, container *dig.Container) error {
 		a auth.Auther,
 		e *casbin.SyncedEnforcer,
 		cFileBrowser *ctl.FileBrowser,
+		cPackage *ctl.Package,
 		cLogin *ctl.Login,
 		cMenu *ctl.Menu,
 		cRole *ctl.Role,
@@ -73,6 +74,11 @@ func RegisterRouter(app *gin.Engine, container *dig.Container) error {
 				fileBrowser.GET(":id", cFileBrowser.Download)
 				fileBrowser.POST("", cFileBrowser.Upload)
 				fileBrowser.DELETE(":id", cFileBrowser.Delete)
+			}
+
+			packageManage := v1.Group("/package-manager")
+			{
+				packageManage.GET("", cPackage.List)
 			}
 
 			// 注册/api/v1/menus
