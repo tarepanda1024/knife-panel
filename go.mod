@@ -3,32 +3,24 @@ module knife-panel
 go 1.13
 
 require (
-	github.com/BurntSushi/toml v0.3.1
-	github.com/LyricTian/captcha v1.1.0
-	github.com/LyricTian/queue v1.2.0
-	github.com/NYTimes/gziphandler v1.1.1 // indirect
-	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
-	github.com/casbin/casbin/v2 v2.1.2
-	github.com/creack/pty v1.1.9
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible
-	github.com/elazarl/go-bindata-assetfs v1.0.0 // indirect
+	github.com/creack/pty v1.1.11
+	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/fatih/structs v1.1.0
-	github.com/gin-contrib/cors v1.3.0
-	github.com/gin-gonic/gin v1.5.0
-	github.com/go-bindata/go-bindata v3.1.2+incompatible // indirect
-	github.com/go-redis/redis v6.15.6+incompatible
-	github.com/go-redis/redis_rate v6.5.0+incompatible
-	github.com/google/gops v0.3.6
-	github.com/google/uuid v1.1.1
+	github.com/gin-gonic/gin v1.6.3 // indirect
+	github.com/gofiber/fiber/v2 v2.0.6
+	github.com/gofiber/websocket/v2 v2.0.1
 	github.com/gorilla/websocket v1.4.2
-	github.com/jinzhu/gorm v1.9.11
-	github.com/json-iterator/go v1.1.8
+	github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869 // indirect
+	github.com/lestrrat/go-envload v0.0.0-20180220120943-6ed08b54a570 // indirect
+	github.com/lestrrat/go-file-rotatelogs v0.0.0-20180223000712-d3151e2a480f
+	github.com/lestrrat/go-strftime v0.0.0-20180220042222-ba3bf9c1d042 // indirect
+	github.com/mattn/go-sqlite3 v1.14.0
+	github.com/onsi/ginkgo v1.10.1 // indirect
+	github.com/onsi/gomega v1.7.0 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/shirou/gopsutil v0.0.0-20180427012116-c95755e4bcd7
+	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/sirupsen/logrus v1.4.2
-	github.com/stretchr/testify v1.4.0
-	github.com/swaggo/swag v1.6.3
-	github.com/tidwall/buntdb v1.1.2
-	go.uber.org/dig v1.8.0
-	golang.org/x/time v0.0.0-20191024005414-555d28b269f0
+	github.com/spf13/viper v1.7.1
+	github.com/tebeka/strftime v0.1.5 // indirect
+	xorm.io/xorm v1.0.5
 )

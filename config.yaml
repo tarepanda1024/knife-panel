@@ -1,0 +1,6 @@
+system:
+  db-type: sqlite3
+  addr: 8080
+
+sqlite:
+  path: knife.db
