@@ -1,11 +1,10 @@
 <template>
-  <ion-icon name="heart"></ion-icon>
 
 </template>
 
 <script>
 export default {
-name: "Dashboard"
+name: "Docker"
 }
 </script>
 

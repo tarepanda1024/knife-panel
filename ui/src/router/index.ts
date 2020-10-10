@@ -3,6 +3,7 @@ import VueRouter, {RouteConfig} from 'vue-router'
 import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import FileManage from '../views/FileManage.vue'
+import Docker from '../views/Docker.vue'
 
 Vue.use(VueRouter)
 
@@ -27,7 +28,16 @@ const routes: Array<RouteConfig> = [
                 name: 'FileManage',
                 meta: {
                     title: '文件管理',
-                    icon: 'ios-folder-open-outline'
+                    icon: 'folder'
+                }
+            },
+            {
+                path: '/docker',
+                component: Docker,
+                name: 'Docker',
+                meta: {
+                    title: 'Docker管理',
+                    icon: 'logo-docker'
                 }
             },
         ]

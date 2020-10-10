@@ -29,15 +29,17 @@
           <template v-for="item in homeRoutes">
             <Submenu v-if="item.children && item.children.length > 0" :name="item.name">
               <template slot="title">
-                <Icon v-if="item.meta.icon" :type="item.meta.icon"></Icon>
+                <ion-icon v-if="item.meta.icon" :name="item.meta.icon"></ion-icon>
                 {{ item.meta.title }}
               </template>
               <template v-for="childItem in item.children">
-                <MenuItem :name="childItem.name()">{{ childItem.meta.title }}</MenuItem>
+                <MenuItem :name="childItem.name" :to="{'name':childItem.name}">
+                  {{ childItem.meta.title }}
+                </MenuItem>
               </template>
             </Submenu>
-            <MenuItem v-else :name="item.name">
-              <Icon v-if="item.meta.icon" :type="item.meta.icon"></Icon>
+            <MenuItem v-else :name="item.name" :to="{'name':item.name}">
+              <ion-icon v-if="item.meta.icon" :name="item.meta.icon"></ion-icon>
               {{ item.meta.title }}
             </MenuItem>
           </template>
@@ -45,11 +47,6 @@
         </Menu>
       </Sider>
       <Layout :style="{padding: '0 24px 24px'}">
-        <Breadcrumb :style="{margin: '24px 0'}">
-          <BreadcrumbItem>Home</BreadcrumbItem>
-          <BreadcrumbItem>Components</BreadcrumbItem>
-          <BreadcrumbItem>Layout</BreadcrumbItem>
-        </Breadcrumb>
         <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
           <router-view/>
         </Content>

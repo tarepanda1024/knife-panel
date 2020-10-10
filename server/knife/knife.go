@@ -11,15 +11,16 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package initialize
+package knife
 
-import (
-	"github.com/gofiber/fiber/v2"
-	"knife-panel/server/core/http/api"
-	"knife-panel/server/core/ws/tty"
-)
+import "github.com/gofiber/fiber/v2"
 
-func InitRouter(app *fiber.App) {
-	tty.RegisterRouter(app)
-	api.RegisterFileBrowser(app)
+type AjaxResult struct {
+	Code int         `json:"code"`
+	Msg  string      `json:"msg"`
+	Data interface{} `json:"data"`
+}
+
+func Success(ctx *fiber.Ctx, data interface{}) error {
+	return ctx.JSON(data)
 }
