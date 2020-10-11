@@ -4,7 +4,10 @@ import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import FileManage from '../views/FileManage.vue'
 import Docker from '../views/Docker.vue'
-
+import WebServer from '../views/WebServer.vue'
+import AppStore from '../views/AppStore.vue'
+import Database from '../views/Database.vue'
+import Setting from '../views/SystemSetting.vue'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -19,7 +22,16 @@ const routes: Array<RouteConfig> = [
                 name: 'Dashboard',
                 meta: {
                     title: '仪表盘',
-                    icon: 'ios-speedometer-outline'
+                    icon: 'speedometer'
+                }
+            },
+            {
+                path: '/database',
+                component: Database,
+                name: 'Database',
+                meta: {
+                    title: '数据库',
+                    icon: 'server'
                 }
             },
             {
@@ -32,12 +44,39 @@ const routes: Array<RouteConfig> = [
                 }
             },
             {
+                path: '/web-server',
+                component: WebServer,
+                name: 'WebServer',
+                meta: {
+                    title: '服务管理',
+                    icon: 'logo-firefox'
+                }
+            },
+            {
                 path: '/docker',
                 component: Docker,
                 name: 'Docker',
                 meta: {
-                    title: 'Docker管理',
+                    title: '容器管理',
                     icon: 'logo-docker'
+                }
+            },
+            {
+                path: '/app-store',
+                component: Docker,
+                name: 'AppStore',
+                meta: {
+                    title: '应用市场',
+                    icon: 'logo-apple-appstore'
+                }
+            },
+            {
+                path: '/system-setting',
+                component: Docker,
+                name: 'SystemSetting',
+                meta: {
+                    title: '系统设置',
+                    icon: 'settings'
                 }
             },
         ]

@@ -24,4 +24,7 @@ export default {
   width: 100vw;
   height: 100vh;
 }
+ion-icon{
+  vertical-align: -.125em;
+}
 </style>

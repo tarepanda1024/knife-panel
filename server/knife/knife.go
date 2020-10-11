@@ -22,5 +22,10 @@ type AjaxResult struct {
 }
 
 func Success(ctx *fiber.Ctx, data interface{}) error {
-	return ctx.JSON(data)
+	result := AjaxResult{
+		Code: 200,
+		Msg:  "success",
+		Data: data,
+	}
+	return ctx.JSON(result)
 }
