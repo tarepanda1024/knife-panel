@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import './plugins/iview.js'
 import moment from "moment";
-
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 Vue.prototype.$moment = moment;
 Vue.config.ignoredElements = [/^ion-/]
 Vue.config.productionTip = false
