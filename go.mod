@@ -3,7 +3,12 @@ module knife-panel
 go 1.13
 
 require (
+	github.com/Microsoft/go-winio v0.4.14 // indirect
 	github.com/creack/pty v1.1.11
+	github.com/docker/distribution v2.7.1+incompatible // indirect
+	github.com/docker/docker v1.13.1 // indirect
+	github.com/docker/go-connections v0.4.0 // indirect
+	github.com/docker/go-units v0.4.0 // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/fatih/structs v1.1.0
 	github.com/gin-gonic/gin v1.6.3 // indirect
@@ -17,6 +22,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.0
 	github.com/onsi/ginkgo v1.10.1 // indirect
 	github.com/onsi/gomega v1.7.0 // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/sirupsen/logrus v1.4.2
