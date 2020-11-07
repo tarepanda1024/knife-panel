@@ -8,6 +8,7 @@ import WebServer from '../views/WebServer.vue'
 import AppStore from '../views/AppStore.vue'
 import Database from '../views/Database.vue'
 import Setting from '../views/SystemSetting.vue'
+import SystemSetting from "@/views/SystemSetting.vue";
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -63,7 +64,7 @@ const routes: Array<RouteConfig> = [
             },
             {
                 path: '/app-store',
-                component: Docker,
+                component: AppStore,
                 name: 'AppStore',
                 meta: {
                     title: '应用市场',
@@ -72,7 +73,7 @@ const routes: Array<RouteConfig> = [
             },
             {
                 path: '/system-setting',
-                component: Docker,
+                component: SystemSetting,
                 name: 'SystemSetting',
                 meta: {
                     title: '系统设置',

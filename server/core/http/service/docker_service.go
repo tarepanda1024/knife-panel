@@ -28,6 +28,19 @@ func NewDockerService() *DockerService {
 type DockerService struct {
 }
 
+func (this *DockerService) Overview() (types.Info, error) {
+	cli, err := client.NewEnvClient()
+	if err != nil {
+		return types.Info{}, err
+	}
+	resources, err := cli.Info(context.Background())
+	if err != nil {
+		panic(err)
+	}
+
+	return resources, nil
+}
+
 func (this *DockerService) ListContainers() ([]types.Container, error) {
 	cli, err := client.NewEnvClient()
 	if err != nil {

@@ -23,6 +23,14 @@ func RegisterDockerApi(app *fiber.App) {
 	dockerService := service.NewDockerService()
 	dockerManage := app.Group("/xhr/v1/dockers")
 
+	dockerManage.Get("/overview", func(ctx *fiber.Ctx) error {
+		if result, err := dockerService.Overview(); err == nil {
+			return knife.Success(ctx, result)
+		} else {
+			return err
+		}
+	})
+
 	dockerManage.Get("/listContainers", func(ctx *fiber.Ctx) error {
 		if result, err := dockerService.ListContainers(); err == nil {
 			return knife.Success(ctx, result)

@@ -1,5 +1,12 @@
 import axios from '../http/axios'
 
+export const overview = (data) => {
+    return axios.request({
+        url: '/xhr/v1/dockers/overview',
+        method: 'get'
+    })
+};
+
 export const listContainers = (data) => {
     return axios.request({
         url: '/xhr/v1/dockers/listContainers',
