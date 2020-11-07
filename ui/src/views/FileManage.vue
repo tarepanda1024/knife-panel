@@ -35,7 +35,7 @@
 <script>
 
 import {listFiles} from "@/service/FileService";
-
+import {formatSize} from "@/utils/FileSizeUtils"
 export default {
   name: "FileManage",
   data() {
@@ -65,14 +65,7 @@ export default {
           "width": 120,
           "align": "center",
           "render": (h, params) => {
-            let size = params.row.size;
-            let units = ['B', 'KB', 'M', 'G', 'T', 'P', 'E'];
-            let unitIndex = 0;
-            while (size >= 1024 && unitIndex < units.length - 1) {
-              size = size / 1024;
-              unitIndex++;
-            }
-            return h('span', size.toFixed(1) + units[unitIndex])
+            return h('span', formatSize( params.row.size))
           }
         },
         {

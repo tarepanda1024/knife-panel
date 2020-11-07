@@ -13,3 +13,73 @@
 // limitations under the License.
 package service
 
+import (
+	"context"
+	"github.com/docker/docker/api/types"
+	"github.com/docker/docker/api/types/filters"
+	"github.com/docker/docker/api/types/volume"
+	"github.com/docker/docker/client"
+)
+
+func NewDockerService() *DockerService {
+	return &DockerService{}
+}
+
+type DockerService struct {
+}
+
+func (this *DockerService) ListContainers() ([]types.Container, error) {
+	cli, err := client.NewEnvClient()
+	if err != nil {
+		return nil, err
+	}
+
+	resources, err := cli.ContainerList(context.Background(), types.ContainerListOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	return resources, nil
+}
+
+func (this *DockerService) ListImages() ([]types.ImageSummary, error) {
+	cli, err := client.NewEnvClient()
+	if err != nil {
+		return nil, err
+	}
+
+	resources, err := cli.ImageList(context.Background(), types.ImageListOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	return resources, nil
+}
+
+func (this *DockerService) ListNets() ([]types.NetworkResource, error) {
+	cli, err := client.NewEnvClient()
+	if err != nil {
+		return nil, err
+	}
+
+	resources, err := cli.NetworkList(context.Background(), types.NetworkListOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	return resources, nil
+}
+
+func (this *DockerService) ListVolumes() (volume.VolumesListOKBody, error) {
+	cli, err := client.NewEnvClient()
+	if err != nil {
+		return volume.VolumesListOKBody{}, err
+	}
+
+	resources, err := cli.VolumeList(context.Background(), filters.Args{})
+	if err != nil {
+		panic(err)
+	}
+
+	return resources, nil
+}
