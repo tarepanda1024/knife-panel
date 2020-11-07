@@ -48,3 +48,4 @@ package-lock.json
 .umi
 .umi-production
 *.sum
+stdout.log.*
