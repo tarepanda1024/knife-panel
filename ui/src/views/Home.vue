@@ -1,21 +1,8 @@
 <template>
   <Layout class="layout">
-    <Header>
-      <Menu mode="horizontal" theme="dark" active-name="">
-        <div class="layout-logo">小刀面板</div>
-        <div class="layout-nav">
-          <MenuItem name="terminal">
-            <ion-icon name="terminal" class="ivu-icon"></ion-icon>
-            终端
-          </MenuItem>
-          <MenuItem name="person">
-            <ion-icon name="person" class="ivu-icon"></ion-icon>
-            管理员
-          </MenuItem>
-        </div>
-      </Menu>
-    </Header>
+    <KnifeHeader/>
     <Layout>
+      <!--侧边栏-->
       <Sider hide-trigger :style="{background: '#fff'}">
         <Menu theme="light" width="auto">
           <template v-for="item in homeRoutes">
@@ -35,11 +22,11 @@
               {{ item.meta.title }}
             </MenuItem>
           </template>
-
         </Menu>
       </Sider>
+      <!--内容区-->
       <Layout :style="{padding: '0 24px 24px'}">
-        <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+        <Content :style="{padding: '24px', height: '100%', background: '#fff'}">
           <router-view/>
         </Content>
       </Layout>
@@ -49,8 +36,14 @@
 </template>
 
 <script>
+import KnifeHeader from "@/components/KnifeHeader/KnifeHeader.vue";
+
 export default {
   name: "Home",
+  components: {
+    KnifeHeader,
+
+  },
   data() {
     return {
       homeRoutes: []
@@ -77,24 +70,6 @@ export default {
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-}
-
-.layout-logo {
-  width: 100px;
-  height: 30px;
-  border-radius: 3px;
-  float: left;
-  position: relative;
-  top: 15px;
-  left: 20px;
-  color: white;
-  text-align: center;
-  line-height: 30px;
-}
-
-.layout-nav {
-  width: 200px;
-  margin: 0 20px 0 auto;
 }
 
 </style>

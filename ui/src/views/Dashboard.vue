@@ -54,8 +54,8 @@ export default {
     }
   },
   mounted() {
-    this.loadLoadChart();
-    this.loadMemChart()
+    //this.loadLoadChart();
+    //this.loadMemChart()
   }
 }
 </script>
