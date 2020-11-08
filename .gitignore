@@ -49,3 +49,5 @@ package-lock.json
 .umi-production
 *.sum
 stdout.log.*
+knife.db
+go.sum

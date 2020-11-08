@@ -1,6 +1,16 @@
 <template>
-  <Card style="height: 100%">
-    <Tree :data="data" :load-data="handleLoadTables" :render="renderContent" @on-select-change="handleNodeClick">
+  <Card style="height: 100%;">
+     <p slot="title">
+        数据库
+     </p>
+    <p slot="extra" style="cursor: pointer;color: dodgerblue">
+      添加
+    </p>
+    <Tree :data="data"
+          :load-data="handleLoadTables"
+          :render="renderContent"
+          @on-select-change="handleNodeClick">
+
     </Tree>
   </Card>
 </template>
