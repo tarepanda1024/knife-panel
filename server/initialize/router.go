@@ -23,4 +23,5 @@ func InitRouter(app *fiber.App) {
 	tty.RegisterRouter(app)
 	api.RegisterFileBrowser(app)
 	api.RegisterDockerApi(app)
+	api.RegisterDBApi(app)
 }

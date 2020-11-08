@@ -15,47 +15,33 @@ package initialize
 
 import (
 	_ "github.com/mattn/go-sqlite3"
+	"knife-panel/server/core/http/model"
 	"knife-panel/server/global"
-	"os"
-	"time"
-	"xorm.io/xorm"
+
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
 )
 
 func InitDatabase() {
 	conf := global.AppConfig
 	var conn string
+	var dialect gorm.Dialector
 	if "sqlite3" == conf.System.DbType {
 		conn = conf.Sqlite.Path
+		dialect = sqlite.Open(conn)
 	}
-	engine, err := xorm.NewEngine(conf.System.DbType, conn)
 
+	if dialect == nil {
+		panic("unSupport db type")
+	}
+
+	db, err := gorm.Open(dialect, &gorm.Config{})
 	if err != nil {
-		global.Log.Fatalf("dao connect failed: %#v\n", err.Error())
-		os.Exit(-1)
+		panic("failed to connect database")
 	}
-	if engine.Ping() != nil {
-		global.Log.Fatalf("dao connect error: %#v\n", err.Error())
-		os.Exit(-1)
+	err = db.AutoMigrate(&model.DBProp{})
+	if err != nil {
+		panic("migrate failed.")
 	}
-	//if err := engine.Sync2(new(model.Book)); err != nil {
-	//	global.Log.Fatalf("sync error: %#v\n", err.Error())
-	//	os.Exit(-1)
-	//}
-
-	engine.ShowSQL(false)
-	engine.SetMaxIdleConns(5)
-	engine.SetMaxOpenConns(30)
-	engine.TZLocation, _ = time.LoadLocation("Asia/Shanghai")
-	global.Log.Info("[NewDBEngine] connect to dao success")
-
-	timer := time.NewTicker(time.Minute * 30)
-	go func(engine *xorm.Engine) {
-		for _ = range timer.C {
-			err = engine.Ping()
-			if err != nil {
-				global.Log.Fatalf("dao connect error: %#v\n", err.Error())
-			}
-		}
-	}(engine)
-	global.DB = engine
+	global.DB = db
 }

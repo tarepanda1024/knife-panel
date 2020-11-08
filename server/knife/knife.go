@@ -29,3 +29,11 @@ func Success(ctx *fiber.Ctx, data interface{}) error {
 	}
 	return ctx.JSON(result)
 }
+func Fail(ctx *fiber.Ctx, code int, msg string) error {
+	result := AjaxResult{
+		Code: 200,
+		Msg:  msg,
+		Data: nil,
+	}
+	return ctx.JSON(result)
+}

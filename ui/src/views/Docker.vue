@@ -1,5 +1,5 @@
 <template>
-  <Tabs value="overview" @on-click="handleTableChanged">
+  <Tabs value="overview" @on-click="handleTabChanged">
     <TabPane label="总览" name="overview">
       <DockerOverview ref="dockerOverview"/>
     </TabPane>
@@ -29,7 +29,7 @@ export default {
   name: "Docker",
   components: {DockerOverview, DockerVolume, DockerNetwork, DockerImage, DockerContainer},
   methods: {
-    handleTableChanged(name) {
+    handleTabChanged(name) {
       switch (name) {
         case 'overview':
           this.$refs.dockerOverview.loadData();

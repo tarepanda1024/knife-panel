@@ -7,13 +7,15 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
     "@types/echarts": "^4.8.3",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "echarts": "^4.9.0",
     "echarts-liquidfill": "^2.0.6",
     "moment": "^2.29.1",
-    "view-design": "^4.0.0",
+    "view-design": "^4.4.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2",

@@ -15,12 +15,12 @@ package global
 
 import (
 	"github.com/sirupsen/logrus"
+	"gorm.io/gorm"
 	"knife-panel/server/config"
-	"xorm.io/xorm"
 )
 
 var (
 	AppConfig config.App
 	Log       *logrus.Logger
-	DB        *xorm.Engine
+	DB        *gorm.DB
 )
